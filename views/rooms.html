@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/htmx.org@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+  </head>
+  <body>
+    <ul>
+      {{range .Rooms}}
+      <li class="list-none">
+        <form
+          class="flex flex-row mb gap-lg"
+          id="roomForm{{.Id}}"
+          hx-trigger="submit"
+          hx-swap="none"
+          hx-post="upRoom"
+          hx-vals='{"id" : "{{.Id}}"}'
+        >
+          <p>{{.Id}}</p>
+          <input type="text" name="roomName" value="{{.Name}}" />
+          <input type="text" name="roomLink" value="{{.Url}}" />
+          <button type="submit" form="roomForm{{.Id}}">submit</button>
+          <button type="button" hx-post="dlRoom" hx-vals='{"id" : "{{.Id}}"}'>
+            del
+          </button>
+        </form>
+      </li>
+      {{end}}
+    </ul>
+  </body>
+</html>

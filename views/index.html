@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/htmx.org@1.9.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/onu-ui@1.0.14-beta.2/dist/style.min.css"
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+  </head>
+  <body>
+    <div class="flex flex-row" id="main">
+      <nav class="" id="navigation">
+        <a hx-get="/stats" hx-target="#content-section">stats</a>
+
+        <a hx-get="/gtrooms" hx-target="#content-section">rooms</a>
+      </nav>
+    </div>
+
+    <section id="content-section"></section>
+  </body>
+</html>
